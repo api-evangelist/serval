@@ -1,0 +1,118 @@
+openapi: 3.1.0
+info:
+  title: API Spec Auth API API
+  version: 1.0.0
+  description: OpenAPI documentation for the API Spec
+servers:
+- url: https://public.api.serval.com
+  description: US region (default)
+- url: https://public.eu1.serval.com
+  description: EU region
+security:
+- bearerAuth: []
+tags:
+- name: Auth API
+paths:
+  /v2/auth/token:
+    post:
+      tags:
+      - Auth API
+      summary: Create Token
+      description: 'Create a token for use across the API. To obtain your Client ID and Client Secret, visit the API Settings page (https://app.serval.com/admin/settings) in your Serval dashboard. This endpoint uses HTTP Basic Authentication where the username is your Client ID and the password is your Client Secret; the Authorization header contains `Basic <base64(client_id:client_secret)>`.
+
+        '
+      operationId: svauth.public.PublicAPIService.CreateToken
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                  title: grant_type
+                  enum:
+                  - client_credentials
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                    title: access_token
+                    description: The access token.
+                  token_type:
+                    type: string
+                    title: token_type
+                    description: The type of token.
+                  expires_in:
+                    type: integer
+                    title: expires_in
+                    description: The number of seconds until the token expires.
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/connect.error'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    connect.error:
+      type: object
+      properties:
+        code:
+          type: string
+          examples:
+          - not_found
+          enum:
+          - canceled
+          - unknown
+          - invalid_argument
+          - deadline_exceeded
+          - not_found
+          - already_exists
+          - permission_denied
+          - resource_exhausted
+          - failed_precondition
+          - aborted
+          - out_of_range
+          - unimplemented
+          - internal
+          - unavailable
+          - data_loss
+          - unauthenticated
+          description: The status code, which should be an enum value of google.rpc.Code.
+        message:
+          type: string
+          description: A developer-facing error message, which should be in English.
+        detail:
+          $ref: '#/components/schemas/google.protobuf.Any'
+      title: Connect Error
+      additionalProperties: true
+      description: 'Error type returned by Connect: https://connectrpc.com/docs/go/errors/#http-representation'
+    google.protobuf.Any:
+      type: object
+      properties:
+        type:
+          type: string
+        value:
+          type: string
+          format: binary
+        debug:
+          type: object
+          additionalProperties: true
+      additionalProperties: true
+      description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+    basicAuth:
+      type: http
+      scheme: basic
