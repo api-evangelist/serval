@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.serval.com/sections/cli/overview.md
+name: serval
+status: beta
+description: >
+  First-party command-line interface for managing Serval workflows and configuration.
+  Pull workflows from Serval teams, edit them locally (as TypeScript, version-controlled in
+  Git), and push changes back; also request and manage access from the terminal.
+auth: OAuth-based device authentication flow (serval login)
+install:
+  - method: homebrew
+    platform: macOS
+    command: brew install --cask servalhq/serval/serval
+  - method: binary
+    platform: [linux, windows]
+    source: https://github.com/ServalHQ/homebrew-serval/releases
+docs:
+  installation: https://docs.serval.com/sections/cli/installation
+  overview: https://docs.serval.com/sections/cli/overview
+  push_pull: https://docs.serval.com/sections/cli/push-pull-configuration
+  access: https://docs.serval.com/sections/cli/access
+commands:
+  - {command: "serval login", description: "Authenticate with the Serval platform"}
+  - {command: "serval logout", description: "Log out from the Serval platform"}
+  - {command: "serval status", description: "Show current authentication status"}
+  - {command: "serval pull <team-prefix>", description: "Pull workflows and configuration for a team"}
+  - {command: "serval push <team-prefix>", description: "Push local changes back to a team"}
+  - {command: "serval access search [query]", description: "Browse roles available to request access to"}
+  - {command: "serval access request", description: "Submit an access request for a role"}
+  - {command: "serval access list", description: "View your access requests"}
+  - {command: "serval access cancel <request-id>", description: "Cancel or revoke an access request"}
+  - {command: "serval version", description: "Display the CLI version"}
+  - {command: "serval help", description: "Show help for any command"}
+  - {command: "serval completion", description: "Generate shell autocompletion (bash/zsh/fish/powershell)"}

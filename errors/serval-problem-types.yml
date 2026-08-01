@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/serval-auth-openapi.yml (connect.error schema)
+format: connect-error   # ConnectRPC HTTP error representation, not RFC 9457
+envelope:
+  fields:
+    - {name: code, type: string, description: "google.rpc.Code enum value (see codes[])"}
+    - {name: message, type: string, description: "developer-facing English error message"}
+    - {name: detail, type: object, description: "optional google.protobuf.Any structured detail"}
+  reference: https://connectrpc.com/docs/go/errors/#http-representation
+codes:
+  - {code: canceled, meaning: The operation was canceled (typically by the caller)}
+  - {code: unknown, meaning: Unknown error}
+  - {code: invalid_argument, meaning: Client specified an invalid argument}
+  - {code: deadline_exceeded, meaning: Deadline expired before the operation completed}
+  - {code: not_found, meaning: Requested entity was not found}
+  - {code: already_exists, meaning: Entity the client attempted to create already exists}
+  - {code: permission_denied, meaning: Caller does not have permission to execute the operation}
+  - {code: resource_exhausted, meaning: A resource or rate/quota has been exhausted}
+  - {code: failed_precondition, meaning: System is not in a state required for the operation}
+  - {code: aborted, meaning: Operation aborted (e.g. concurrency conflict)}
+  - {code: out_of_range, meaning: Operation attempted past the valid range}
+  - {code: unimplemented, meaning: Operation is not implemented or supported}
+  - {code: internal, meaning: Internal server error}
+  - {code: unavailable, meaning: Service is currently unavailable (retry with backoff)}
+  - {code: data_loss, meaning: Unrecoverable data loss or corruption}
+  - {code: unauthenticated, meaning: Request lacks valid authentication credentials}
+notes: >
+  Serval's backend is a Connect (ConnectRPC / buf) service; error responses use the Connect
+  error envelope with a google.rpc.Code string. The full per-operation 4xx/5xx map is in the
+  login-gated openapi.json; this catalog is derived from the one auth-error schema published
+  in the clear plus the documented code enumeration.

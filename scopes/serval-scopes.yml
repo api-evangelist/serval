@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: searched
+source: https://public.api.serval.com/.well-known/oauth-authorization-server
+docs: https://docs.serval.com/sections/documentation/end-user/mcp-quickstart
+schemes:
+  - name: OAuth2
+    source: well-known/serval-oauth-authorization-server.json
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://public.api.serval.com/oauth/authorize
+        tokenUrl: https://public.api.serval.com/oauth/token
+        pkce: S256
+scopes:
+  - scope: serval:user
+    description: >
+      Act on behalf of an authenticated Serval user through the OAuth authorization server
+      (the scope requested by the hosted MCP server / delegated agent clients). This is the
+      only scope advertised in the RFC 8414 authorization-server metadata
+      (scopes_supported: ["serval:user"]).
+    flows: [authorizationCode]
+    sources: [well-known/serval-oauth-authorization-server.json]
+notes: >
+  Serval's public REST API (/v2/*) does not use OAuth scopes — it uses a Basic
+  client_id:client_secret -> Bearer token exchange (see authentication/). The scope
+  surface here belongs to the separate OAuth 2.0 authorization server used by the MCP
+  server and interactive agent clients. Per-team API access is scoped by the admin at
+  integration setup time rather than via OAuth scopes.

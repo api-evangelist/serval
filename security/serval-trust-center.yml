@@ -1,0 +1,15 @@
+generated: '2026-07-21'
+method: searched
+source: https://trust.serval.com/ ; https://docs.serval.com/sections/documentation/platform/product-security.md
+url: https://trust.serval.com/
+platform: Vanta
+verified: true   # trust.serval.com returns HTTP 200 and is referenced as the compliance source in Serval product-security docs
+certifications: []   # the trust center renders its certification list client-side (Vanta); specific certs not asserted here without a verified static source
+evidence:
+  - {source: https://trust.serval.com/, kind: trust-center, detail: Vanta-hosted trust report}
+  - {source: https://docs.serval.com/sections/documentation/platform/product-security.md, kind: docs, detail: "\"Compliance — See the Serval Trust Center\""}
+notes: >
+  Serval publishes a Vanta-managed trust center at trust.serval.com and points to it from its
+  product-security documentation for compliance posture. The certification badges are loaded
+  dynamically by the Vanta client, so no specific certification (e.g. SOC 2) is recorded here
+  without a verifiable static source; request the trust report directly to enumerate them.

@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: searched
+status: published
+source: https://docs.serval.com/sections/documentation/end-user/mcp-quickstart.md
+server:
+  name: serval
+  transport: http          # remote/streamable HTTP MCP endpoint
+  url: https://public.api.serval.com/mcp/
+  auth:
+    type: oauth2
+    flow: authorization_code
+    metadata: https://public.api.serval.com/.well-known/oauth-authorization-server
+    dynamic_client_registration: true
+    pkce: S256
+    scopes: [serval:user]
+  availability: >
+    Custom connectors require a Pro, Team, or Enterprise plan; an organization admin may
+    need to enable MCP access. Configurable in Settings > Connectors (Claude and any
+    MCP-capable client) or via `mcp-remote https://public.api.serval.com/mcp/`.
+tools:
+  # Serval publishes the hosted MCP server but does not enumerate its tool list publicly.
+  # Documented capabilities (natural-language surface over the public API):
+  - name: create_ticket
+    description: Create a support/help-desk ticket.
+  - name: run_workflow
+    description: Run a published Serval workflow.
+  - name: check_request_status
+    description: Check the status of a request/ticket.
+  - name: look_up_people
+    description: Look up users/people in the organization directory.
+notes: >
+  Official, first-party hosted MCP server ("user MCP", shipped in the Mar 26 2026 release).
+  Tool names above are documented capabilities, not a verbatim tools/list dump; the server
+  is authenticated via the OAuth 2.0 authorization server at public.api.serval.com
+  (scope serval:user).

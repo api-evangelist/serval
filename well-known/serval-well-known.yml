@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: searched
+source: probed /.well-known/ paths on Serval API + website hosts
+hosts:
+  - host: https://public.api.serval.com
+    documents:
+      - path: /.well-known/oauth-authorization-server   # RFC 8414
+        status: 200
+        file: serval-oauth-authorization-server.json
+      - path: /.well-known/security.txt                 # RFC 9116
+        status: 404
+      - path: /.well-known/openid-configuration          # OIDC discovery
+        status: 404
+  - host: https://www.serval.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+notes: >
+  Serval publishes an RFC 8414 OAuth 2.0 Authorization Server Metadata document at
+  public.api.serval.com. It advertises a full authorization_code + PKCE (S256) flow with
+  Dynamic Client Registration (registration_endpoint), refresh_token and jwt-bearer grants,
+  a revocation_endpoint, and a single scope (serval:user). This is the OAuth surface behind
+  the hosted MCP server (https://public.api.serval.com/mcp/). The public REST API (/v2/*)
+  uses a separate HTTP Basic client_id:client_secret -> Bearer token exchange.

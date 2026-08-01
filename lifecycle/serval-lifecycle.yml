@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.serval.com/ ; https://status.serval.com ; https://trust.serval.com
+versioning:
+  scheme: uri-path
+  current: v2
+  docs: https://docs.serval.com/api-reference/introduction
+deprecation:
+  policy_url: null
+  documented_changes:
+    - "Entitlements renamed to Roles across the public API and workflow builder; integrations referencing entitlements should migrate to the roles terminology."
+status_page: https://status.serval.com
+trust_center: https://trust.serval.com/
+release_notes: https://docs.serval.com/sections/release-notes/
+data_residency:
+  regions: [US, EU]
+  docs: https://docs.serval.com/sections/documentation/platform/data-residency
+notes: >
+  Serval runs a public status page (status.serval.com, hosted on Statuspage) and a Vanta
+  trust center (trust.serval.com). No formal RFC 8594 Sunset/Deprecation-header policy is
+  published; the only documented breaking change is the Entitlements->Roles rename.

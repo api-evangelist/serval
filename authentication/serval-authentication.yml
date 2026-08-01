@@ -1,0 +1,52 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.serval.com/api-reference/auth-api/create-token.md
+docs: https://docs.serval.com/api-reference/auth-api/create-token
+summary:
+  types: [http-basic, http-bearer, oauth2]
+  api_key_in: []
+  oauth2_flows: [authorizationCode, clientCredentials]
+models:
+  # 1. Public REST API v2 — machine-to-machine
+  - name: rest-api-token-exchange
+    audience: server-to-server integrations
+    scheme: http
+    description: >
+      Obtain an access token by POSTing grant_type=client_credentials to
+      https://public.api.serval.com/v2/auth/token with HTTP Basic auth
+      (username = Client ID, password = Client Secret, from app.serval.com/admin/settings).
+      The response returns access_token / token_type / expires_in. Use the token as
+      `Authorization: Bearer <access_token>` on all /v2/* requests.
+    token_endpoint: https://public.api.serval.com/v2/auth/token
+    schemes:
+      - name: basicAuth
+        type: http
+        scheme: basic
+        use: token exchange (client_id:client_secret)
+        sources: [openapi/serval-auth-openapi.yml]
+      - name: bearerAuth
+        type: http
+        scheme: bearer
+        use: all subsequent API calls
+        sources: [openapi/serval-auth-openapi.yml]
+  # 2. OAuth 2.0 authorization server — the MCP / delegated-user surface
+  - name: oauth2-authorization-server
+    audience: interactive agents / MCP clients acting for a user
+    scheme: oauth2
+    description: >
+      RFC 8414 authorization server at public.api.serval.com powering the hosted MCP server.
+      Supports authorization_code with PKCE (S256), refresh_token, and jwt-bearer grants,
+      Dynamic Client Registration, and token revocation. Single scope: serval:user.
+    metadata: https://public.api.serval.com/.well-known/oauth-authorization-server
+    endpoints:
+      authorization: https://public.api.serval.com/oauth/authorize
+      token: https://public.api.serval.com/oauth/token
+      registration: https://public.api.serval.com/oauth/register
+      revocation: https://public.api.serval.com/oauth/revoke
+    grant_types: [authorization_code, refresh_token, "urn:ietf:params:oauth:grant-type:jwt-bearer"]
+    code_challenge_methods: [S256]
+    token_endpoint_auth_methods: [none, client_secret_basic, client_secret_post]
+    scopes: [serval:user]
+regions:
+  - {region: US, base: https://public.api.serval.com}
+  - {region: EU, base: https://public.eu1.serval.com}

@@ -1,8 +1,14 @@
 aid: serval
 name: Serval
-description: 'Serval is a company surfaced as a portfolio company of general-catalyst, redpoint-ventures
-  and added to the API Evangelist network as a stub for enrichment. Sector: energy-infrastructure. This
-  profile is a lead awaiting the enrichment pipeline.'
+description: >-
+  Serval is an AI-native IT service management (ITSM) platform for modern teams. It pairs an
+  AI help-desk agent that resolves employee requests in Slack, Microsoft Teams, email, and a
+  web portal with a separate admin-facing automation agent (Catalyst) that turns intent into
+  deterministic, version-controlled TypeScript workflows. Serval covers ticketing, knowledge
+  base, journeys (onboarding/offboarding), just-in-time access management with approval flows,
+  campaigns, SLAs, and 130+ integrations. Its public REST API (v2), hosted MCP server, CLI,
+  and webhooks let teams manage tickets, workflows, access, users, and audit logs
+  programmatically, with US and EU data-residency regions.
 url: https://raw.githubusercontent.com/api-evangelist/serval/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,18 +17,105 @@ x-backed-by:
 - redpoint-ventures
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://framerusercontent.com/images/V6k6fFCAJ2d3ZHM9P4chDQnDbY.png
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-- Energy Infrastructure
-apis: []
+- IT Service Management
+- ITSM
+- Help Desk
+- Workflow Automation
+- AI Agents
+- Access Management
+- Employee Support
+- Ticketing
+apis:
+- aid: serval:serval-auth-api-api
+  name: Serval Auth API API
+  description: The Auth API API from Serval — 1 operation(s) for auth api.
+  humanURL: https://docs.serval.com/api-reference/introduction
+  baseURL: https://public.api.serval.com
+  tags:
+  - Auth API
+  properties:
+  - type: OpenAPI
+    url: openapi/serval-auth-api-api-openapi.yml
+  - type: Authentication
+    url: authentication/serval-authentication.yml
+  - type: OAuthScopes
+    url: scopes/serval-scopes.yml
+  - type: Conventions
+    url: conventions/serval-conventions.yml
+  - type: ErrorCatalog
+    url: errors/serval-problem-types.yml
+  - type: Webhooks
+    url: asyncapi/serval-webhooks.yml
+  - type: Conformance
+    url: conformance/serval-conformance.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/serval-domain-security.yml
 - type: Website
   url: https://www.serval.com/
+- type: DeveloperPortal
+  url: https://docs.serval.com/
+- type: Documentation
+  url: https://docs.serval.com/
+- type: APIReference
+  url: https://docs.serval.com/api-reference/introduction
+- type: GettingStarted
+  url: https://docs.serval.com/sections/documentation/overview/welcome
+- type: Support
+  url: https://docs.serval.com/sections/documentation/platform/support
+- type: Blog
+  url: https://www.serval.com/blog
+- type: Pricing
+  url: https://www.serval.com/pricing
+- type: Login
+  url: https://app.serval.com/
+- type: TermsOfService
+  url: https://www.serval.com/legal/terms
+- type: PrivacyPolicy
+  url: https://www.serval.com/legal/privacy
+- type: GitHubOrganization
+  url: https://github.com/ServalHQ
+- type: ChangeLog
+  url: changelog/serval-changelog.yml
+- type: StatusPage
+  url: https://status.serval.com
+- type: TrustCenter
+  url: https://trust.serval.com/
+- type: MCPServer
+  url: mcp/serval-mcp.yml
+- type: CLI
+  url: cli/serval-cli.yml
+- type: LLMsTxt
+  url: llms/serval-llms.txt
+- type: WellKnown
+  url: well-known/serval-well-known.yml
+- type: Lifecycle
+  url: lifecycle/serval-lifecycle.yml

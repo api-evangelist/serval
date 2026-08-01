@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.serval.com/sections/release-notes/
+scheme: dated-release-notes
+current: '2026-07-10'
+cadence: roughly weekly
+entries:
+  - {date: '2026-07-10', highlights: "Improved Microsoft Teams: reply clarification in DMs, reply-with-quote routing, custom Serval bot avatars."}
+  - {date: '2026-07-03', highlights: "Assign tickets to groups; share workflows across teams; team-manager override for approvals; web-portal feedback; SharePoint Site.Selected scoping."}
+  - {date: '2026-06-26', highlights: "Native knowledge base (beta); campaigns triggerable directly from a workflow."}
+  - {date: '2026-06-19', highlights: "Single tag catalog; owners for teams, resources, and roles."}
+  - {date: '2026-06-12', highlights: "ITIL-aligned change management; ticket visibility groups; Applications page becomes Integrations and Access Management."}
+  - {date: '2026-06-05', highlights: "Analytics dashboards public beta; time-to-first-human-response SLAs; EU data residency option."}
+  - {date: '2026-05-27', highlights: "Email-campaign responses; workflow folders; default triage team for ambiguous requests."}
+  - {date: '2026-05-20', highlights: "Email campaigns; per-Slack-channel escalation behavior; Readonly Agent role; app-instance selection in workflow steps."}
+  - {date: '2026-05-13', highlights: "UI localization (9 languages); Guidance renamed to Skills; publish approved knowledge into Notion/Slab/Confluence/Freshservice/ServiceNow."}
+  - {date: '2026-04-22', highlights: "Pause workflows for approval; email replies with citations; Anthropic usage management; Tanium integration."}
+  - {date: '2026-04-09', highlights: "Custom fields for tickets; recurring campaigns; installable workflows for LDAP/AD, Okta, Google Workspace."}
+  - {date: '2026-04-01', highlights: "Redesigned ticketing UI; SLA workflow triggers; installable workflow bundles; Approvals API; Coupa integration."}
+  - {date: '2026-03-26', highlights: "Campaigns with workflow responses; Serval Inbox; Help Desk Agent web search; user MCP; assignment schedules; approval/assignment delegation."}
+  - {date: '2026-03-12', highlights: "Approval delegation; access requests via CLI; lexical/keyword knowledge search; Salesforce, SailPoint, LaunchDarkly integrations."}
+  - {date: '2026-03-06', highlights: "Team visibility controls; asset reference inputs; external ticket subscribers; conditional Slack forms; Teams notifications."}
+  - {date: '2026-02-26', highlights: "Child workflow composition; Slack reaction triggers; workflow-backed catalog items; access revocation via API and workflows."}
+  - {date: '2026-02-12', highlights: "White-label Slack bot; redesigned SLAs with business hours/pause; agent-powered run debugging; criteria-based assignment rules."}
+  - {date: '2026-02-05', highlights: "Service catalog ingestion; support tokens; new team roles; access extensions."}
+  - {date: '2026-01-21', highlights: "Knowledge source permission enforcement; redesigned ticket experience with archiving/feedback; command palette; Slack ticket status updates."}
+  - {date: '2025-11-10', highlights: "Guidance suggestions; tasks for tickets; webhook-triggered workflows; 7 new integrations."}
+notes: >
+  Serval maintains dated release notes (roughly weekly) at docs.serval.com/sections/release-notes/.
+  Recent window captured above; the index is the source of truth for full history.

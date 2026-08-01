@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/serval-auth-openapi.yml ; docs.serval.com ; well-known/serval-oauth-authorization-server.json
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: RFC 8414 authorization server at public.api.serval.com (authorization_code + PKCE, DCR, refresh_token, jwt-bearer)
+  - id: rfc8414-oauth-as-metadata
+    conforms: true
+    evidence: /.well-known/oauth-authorization-server returns 200 with issuer/endpoints/scopes
+  - id: rfc7636-pkce
+    conforms: true
+    evidence: code_challenge_methods_supported includes S256
+  - id: rfc7591-dynamic-client-registration
+    conforms: true
+    evidence: registration_endpoint advertised in AS metadata
+  - id: aip-158-pagination
+    conforms: true
+    evidence: list endpoints use page_size/page_token/next_page_token per Google AIP-158
+  - id: connectrpc-errors
+    conforms: true
+    evidence: error envelope is the Connect (google.rpc.Code) representation
+  - id: mcp
+    conforms: true
+    evidence: official hosted MCP server at public.api.serval.com/mcp/
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: errors use ConnectRPC envelope, not application/problem+json
+  - id: openid-connect
+    conforms: false
+    evidence: no /.well-known/openid-configuration published
+  - id: scim2
+    conforms: false
+    evidence: SCIM provisioning is consumed from IdPs, not exposed as a Serval SCIM server
+compliance:
+  trust_center: https://trust.serval.com/
+  program: Vanta-managed trust center; product-security docs reference it for compliance posture
+  note: >
+    Specific certifications (e.g. SOC 2) are presented on the Vanta-hosted trust center,
+    which renders them client-side; not asserted here without a verified static source.

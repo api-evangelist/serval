@@ -1,0 +1,14 @@
+{
+  "provider": "serval",
+  "sources": [
+    "serval-auth-api-api-openapi.yml"
+  ],
+  "outputs": [
+    "serval-auth-api-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

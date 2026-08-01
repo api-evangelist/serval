@@ -1,0 +1,42 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.serval.com/api-reference/ (introduction, webhooks, auth)
+authentication:
+  style: bearer-token
+  detail: >
+    Basic client_id:client_secret exchanged at POST /v2/auth/token (grant_type=client_credentials)
+    for a short-lived Bearer access token; sent as Authorization: Bearer <token>. See authentication/.
+versioning:
+  scheme: uri-path
+  current: v2
+  detail: All public API endpoints are served under the /v2/ path prefix.
+regions:
+  detail: US (public.api.serval.com) and EU (public.eu1.serval.com) regional base URLs; EU data residency is selectable per organization.
+pagination:
+  style: cursor
+  standard: Google AIP-158
+  request_params: [page_size, page_token]
+  response_fields: [next_page_token]
+  detail: >
+    All list endpoints follow Google AIP-158. Pass page_size and page_token; the response
+    returns next_page_token when more results are available.
+error_envelope:
+  format: connect-error
+  detail: >
+    Errors follow the Connect (ConnectRPC) HTTP error representation: a JSON object with
+    `code` (a google.rpc.Code enum string such as not_found, permission_denied,
+    invalid_argument), a developer-facing `message`, and an optional `detail`. See errors/.
+  cross_reference: errors/serval-problem-types.yml
+terminology:
+  detail: >
+    The public API and workflow builder use "Roles" (previously "Entitlements"). Existing
+    integrations referencing entitlements should migrate to the roles terminology.
+webhooks:
+  detail: >
+    Outbound webhooks deliver HTTP POST notifications (currently Copilot Status Change events).
+    See asyncapi/serval-webhooks.yml.
+idempotency:
+  supported: false
+  detail: No idempotency-key mechanism is documented in the public Serval API reference.
+rate_limiting:
+  detail: No public rate-limit headers or quota schedule are documented in the API reference.
