@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Spec Auth API API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auth API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://public.api.serval.com/v2/auth/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Create a token for use across the API. To obtain your Client ID and Client Secret, visit the API Settings page (https://app.serval.com/admin/settings) in your Serval dashboard. This endpoint uses HTTP Basic Authentication where the username is your Client ID and the password is your Client Secret; the Authorization header contains `Basic <base64(client_id:client_secret)>`.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
