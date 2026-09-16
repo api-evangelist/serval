@@ -1,13 +1,11 @@
 aid: serval
 name: Serval
-description: >-
-  Serval is an AI-native IT service management (ITSM) platform for modern teams. It pairs an
-  AI help-desk agent that resolves employee requests in Slack, Microsoft Teams, email, and a
-  web portal with a separate admin-facing automation agent (Catalyst) that turns intent into
-  deterministic, version-controlled TypeScript workflows. Serval covers ticketing, knowledge
-  base, journeys (onboarding/offboarding), just-in-time access management with approval flows,
-  campaigns, SLAs, and 130+ integrations. Its public REST API (v2), hosted MCP server, CLI,
-  and webhooks let teams manage tickets, workflows, access, users, and audit logs
+description: Serval is an AI-native IT service management (ITSM) platform for modern teams. It pairs an
+  AI help-desk agent that resolves employee requests in Slack, Microsoft Teams, email, and a web portal
+  with a separate admin-facing automation agent (Catalyst) that turns intent into deterministic, version-controlled
+  TypeScript workflows. Serval covers ticketing, knowledge base, journeys (onboarding/offboarding), just-in-time
+  access management with approval flows, campaigns, SLAs, and 130+ integrations. Its public REST API (v2),
+  hosted MCP server, CLI, and webhooks let teams manage tickets, workflows, access, users, and audit logs
   programmatically, with US and EU data-residency regions.
 url: https://raw.githubusercontent.com/api-evangelist/serval/refs/heads/main/apis.yml
 x-type: company
@@ -49,7 +47,7 @@ accessModel:
 image: https://framerusercontent.com/images/V6k6fFCAJ2d3ZHM9P4chDQnDbY.png
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-09-16'
 tags:
 - Company
 - ITSM
@@ -71,7 +69,7 @@ tags_raw:
 - Ticketing
 apis:
 - aid: serval:serval-auth-api-api
-  name: Serval Auth API API
+  name: Serval Auth API
   description: The Auth API API from Serval — 1 operation(s) for auth api.
   humanURL: https://docs.serval.com/api-reference/introduction
   baseURL: https://public.api.serval.com
