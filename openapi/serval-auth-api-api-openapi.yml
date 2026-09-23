@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Spec Auth API API
+  title: Spec Auth API
   version: 1.0.0
   description: OpenAPI documentation for the API Spec
 servers:
@@ -18,9 +18,7 @@ paths:
       tags:
       - Auth API
       summary: Create Token
-      description: 'Create a token for use across the API. To obtain your Client ID and Client Secret, visit the API Settings page (https://app.serval.com/admin/settings) in your Serval dashboard. This endpoint uses HTTP Basic Authentication where the username is your Client ID and the password is your Client Secret; the Authorization header contains `Basic <base64(client_id:client_secret)>`.
-
-        '
+      description: Create a token for use across the API. To obtain your Client ID and Client Secret, visit the API Settings page (https://app.serval.com/admin/settings) in your Serval dashboard. This endpoint uses HTTP Basic Authentication where the username is your Client ID and the password is your Client Secret; the Authorization header contains `Basic `.
       operationId: svauth.public.PublicAPIService.CreateToken
       requestBody:
         content:
