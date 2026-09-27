@@ -52,7 +52,7 @@ tags:
 - Company
 - ITSM
 - Help Desk
-- Workflow-Automation
+- Workflow Automation
 - AI Agents
 - Access Management
 - Employee Support
@@ -67,6 +67,7 @@ tags_raw:
 - Access Management
 - Employee Support
 - Ticketing
+- Workflow-Automation
 apis:
 - aid: serval:serval-auth-api-api
   name: Serval Auth API
