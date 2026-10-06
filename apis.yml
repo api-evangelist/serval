@@ -47,7 +47,7 @@ accessModel:
 image: https://framerusercontent.com/images/V6k6fFCAJ2d3ZHM9P4chDQnDbY.png
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-09-16'
+modified: '2026-10-06'
 tags:
 - Company
 - ITSM
@@ -97,6 +97,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- url: https://www.serval.com/feed.xml
+  type: BlogRSS
 - type: DomainSecurity
   url: security/serval-domain-security.yml
 - type: Website
