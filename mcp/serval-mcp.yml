@@ -40,3 +40,15 @@ deployment:
   probe: gated
   checked: '2026-08-12'
   source: catalog MCP census
+rfc9728:
+  endpoint: https://public.api.serval.com/mcp/
+  metadata_url: https://public.api.serval.com/.well-known/oauth-protected-resource
+  discovered_via: WWW-Authenticate resource_metadata on an anonymous POST initialize
+  fetched: '2026-09-25'
+  http_status: 200
+  content_type: application/json
+  document:
+    resource: https://public.api.serval.com
+    authorization_servers:
+    - https://public.api.serval.com
+    resource_name: Serval MCP Server
