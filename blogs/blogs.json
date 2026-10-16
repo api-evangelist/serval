@@ -2,6 +2,20 @@
   "repo": "serval",
   "feeds": [
     {
+      "source": "https://www.serval.com/blog",
+      "feed_url": "https://www.serval.com/blog",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://www.serval.com/feed.xml",
+      "feed_url": "https://www.serval.com/feed.xml",
+      "title": "",
+      "saved": 4,
+      "method": "feed"
+    },
+    {
       "source": "https://docs.serval.com/sections/documentation/platform/support",
       "feed_url": "https://docs.serval.com/sections/documentation/platform/support",
       "title": "",
@@ -9,6 +23,6 @@
       "method": "none"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-10-03T12:30:02Z"
+  "post_count": 4,
+  "fetched": "2026-10-10T13:15:00Z"
 }
